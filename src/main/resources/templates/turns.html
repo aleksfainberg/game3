@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Game3</title>
+</head>
+<body>
+<div align="center">
+	<h1>Game of Three</h1>
+	<a href="newGame/0">Start new game - Computer first</a>
+	<br>
+	<a href="newGame/1">Start new game - Human first</a>	
+	
+	<br/><br/> 
+	
+	<h1>Game status:</h1>
+	<span th:text="'Game status:' + ${game.status}"></span>
+	<br/>
+	<span th:text="'First player:' + ${game.firstPlayer}"></span>
+	<br/>
+	<span th:text="'Winner:' + ${game.winner}"></span>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+<!-- 				<th>Turn ID</th> -->
+				<th>Player</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="turn : ${listTurns}">
+<!-- 				<td th:text="${turn.id}">Turn ID</td> -->
+				<td th:text="${turn.player}">Player</td>
+				<td th:text="${turn.value}">Value</td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="#" th:action="@{/saveHumanTurn}" th:object="${turn}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Player:</td>
+					<td><input type="text" th:field="*{player}" readonly="readonly"/> </td>
+				</tr>
+				<tr>
+					<td>Value:</td>
+					<td><input type="text" th:field="*{value}" /> </td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+	</form>
+	
+	
+</div>
+</body>
+</html>
