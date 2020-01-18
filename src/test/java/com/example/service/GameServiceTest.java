@@ -26,7 +26,6 @@ import com.example.Constants;
 import com.example.entity.Game;
 import com.example.entity.Turn;
 import com.example.repository.GameRepository;
-import com.example.repository.TurnRepository;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @SpringBootTest
@@ -77,7 +76,6 @@ public class GameServiceTest {
 	}
 	
 	@Test
-	@DisplayName("testStartNewGame_0")
 	public void testStartNewGame_0() {
 		Turn turn1 = new Turn();
 		turn1.setPlayer(Constants.COMPUTER);
@@ -92,7 +90,6 @@ public class GameServiceTest {
 		assertThat(result.getFirstPlayer())
 	      .isEqualTo(Constants.COMPUTER);
 	}	
-
 	
 	@Test
 	public void testCreateNewGame() {
@@ -199,77 +196,5 @@ public class GameServiceTest {
 		game1.setWinner(Constants.HUMAN);
 		return game1;
 	}	
-	
-	
-//	@Test
-//	public void testDoTurn_value0() {
-//		Turn turn1 = new Turn();
-//		turn1.setPlayer(Constants.COMPUTER);
-//		turn1.setValue(10);
-//		when(turnRepo.save(ArgumentMatchers.<Turn>any())).thenAnswer(i -> i.getArguments()[0]);
-//		
-//		Turn result = turnService.doTurn(0);
-//		assertThat(result.getValue())
-//	      .isBetween(1, Constants.MAX_START_VALUE);
-//	}
-//	
-//	@Test
-//	public void testCreateNewHumanTurn() {
-//		Turn turn1 = new Turn();
-//		turn1.setPlayer(Constants.HUMAN);
-//		Turn result = turnService.createNewHumanTurn();
-//		assertThat(result.getPlayer())
-//	      .isEqualTo(turn1.getPlayer());
-//	}
-//	
-//	@Test
-//	public void testSave() {
-//		Turn turn1 = new Turn();
-//		turn1.setPlayer(Constants.COMPUTER);
-//		turn1.setValue(10);
-//		when(turnRepo.save(ArgumentMatchers.<Turn>any())).thenAnswer(i -> i.getArguments()[0]);
-//		
-//		Turn result = turnService.save(turn1);
-//		assertThat(result.getValue())
-//	      .isEqualTo(turn1.getValue());
-//		assertThat(result.getPlayer())
-//	      .isEqualTo(turn1.getPlayer());
-//	}
-//
-//	@Test
-//	public void testValidateTurn_OK() {
-//		Turn turn1 = new Turn();
-//		turn1.setPlayer(Constants.COMPUTER);
-//		turn1.setValue(10);
-//		
-//		Turn turn2 = new Turn();
-//		turn2.setPlayer(Constants.HUMAN);
-//		turn2.setValue(3);
-//		when(turnRepo.findTopByOrderByIdDesc()).thenReturn(turn1);
-//		
-//		String result = turnService.validateTurn(turn2);
-//		assertThat(result)
-//	      .isEqualTo(Constants.OK);
-//	}
-//
-//	@Test
-//	public void testValidateTurn_null() {
-//		Turn turn1 = null;
-//		
-//		Turn turn2 = new Turn();
-//		turn2.setPlayer(Constants.HUMAN);
-//		turn2.setValue(3);
-//		when(turnRepo.findTopByOrderByIdDesc()).thenReturn(turn1);
-//		
-//		String result = turnService.validateTurn(turn2);
-//		assertThat(result)
-//	      .isEqualTo(Constants.OK);
-//		
-//		turn2.setValue(1);
-//		result = turnService.validateTurn(turn2);
-//		assertThat(result)
-//	      .isEqualTo(Constants.FAILED);
-//	}
-	
-	
+
 }

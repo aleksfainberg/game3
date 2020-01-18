@@ -19,9 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.Constants;
 import com.example.entity.Game;
@@ -91,7 +88,6 @@ class AppControllerTest {
 		String result = controller.saveHumanTurn(turn1);
 		assertThat(result)
 	      .isEqualTo("turnFailed");		
-		//verify(turnService, times(1)).validateTurn(turn1);
 		
 		when(turnService.validateTurn(turn1)).thenReturn(Constants.OK);
 		when(gameService.humanTurn(turn1)).thenReturn(Constants.OK);

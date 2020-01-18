@@ -30,7 +30,6 @@ public class GameService {
 		else 
 			firstPlayer=Constants.HUMAN;
 		Game game = createNewGame(firstPlayer);
-		//createNewGame(firstPlayer);
 		if (i==0)
 			computerTurn(0);
 		return game;
@@ -42,7 +41,6 @@ public class GameService {
 		Game game = new Game();
 		game.setFirstPlayer(firstPlayer);
 		game.setStatus(Constants.STARTED);
-		//repo.save(game);
 		return repo.save(game);
 	}
 

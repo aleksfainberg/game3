@@ -29,7 +29,6 @@ public class TurnService {
 		else {
 			newTurn.setValue((int)Math.round(((double) i) / 3));
 		}
-		//newTurn = repo.save(newTurn);
 		return repo.save(newTurn);
 	}
 
@@ -60,5 +59,4 @@ public class TurnService {
 			return Constants.OK;
 		return Constants.FAILED;
 	}
-	
 }

@@ -21,7 +21,6 @@ public class GameRepositoryTest {
 	
 	@Test
 	public void saveGame_thenFind() {
-		System.out.println("test2");
 	    // given
 	    Game game1 = new Game();
 	    game1.setStatus(Constants.STARTED);

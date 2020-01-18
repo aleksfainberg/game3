@@ -135,6 +135,4 @@ public class TurnServiceTest {
 		assertThat(result)
 	      .isEqualTo(Constants.FAILED);
 	}
-	
-	
 }

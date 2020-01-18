@@ -21,7 +21,6 @@ public class TurnRepositoryTest {
 	
 	@Test
 	public void saveGame_thenFind() {
-		System.out.println("test3");
 	    // given
 	    Turn turn1 = new Turn();
 	    turn1.setPlayer(Constants.HUMAN);
